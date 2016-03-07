@@ -12,6 +12,7 @@ class Blog
         puts @@all_posts
     end
 end
+#uninitialized means it hasn't been created or had a value yet
 #what does it mean to initialize a class variable? How can one call on the parent class variable inside the child class?
 class BlogPost < Blog
 #set title, content, publish date, author? for each NEW post

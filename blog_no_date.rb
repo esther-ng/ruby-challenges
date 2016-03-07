@@ -17,10 +17,10 @@ class Blog
 #class method to publish all posts    
     def self.publish 
 #does the post here have to match the post below to work? or is post just the name of each object in the array?
+        puts "You have #{@@num_blog_posts} posts."
         @@all_blog_posts.each do |post|
             puts "Title:\n #{post.title}"
             puts "Body:\n #{post.content}"
-            puts "Publish Date:\n #{post.created_at}"
         end  
     end
 end
@@ -30,12 +30,12 @@ class BlogPost < Blog
 #creates new method instead of changing .new method?
     def self.create
 #what does post=new do? post defined above? does this name the new instance object "post"??
-        post = new
+        post = new 
+#this is like saying post = self.new or BlogPost.new because you are already in the class
         puts "Name your blog post:"
         post.title = gets.chomp
         puts "Your blog post content:"
         post.content = gets.chomp
-        post.created_at = Time.now
 #what does post.save do, defined below? Calls on the method below that adds the post to the array
         post.save
         puts "Do you want to create another post? [Y/N]"
@@ -50,14 +50,10 @@ class BlogPost < Blog
     def title=(title)
         @title = title
     end
-#created_at error?
-    def created_a
-        @created_at
-    end
+    
+#    def title=(t)
+#        @title = t
 
-    def created_at=(created_at)
-        @created_at = created_at
-    end
     def content
         @content
     end
